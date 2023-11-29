@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+
+# Archivos generados durante el desarrollo
+npm-debug.log
+yarn-error.log
+
+# Configuraciones locales
+.env
+
+# Archivos de compilación
+/dist
+/build
+
+# Dependiendo del entorno de desarrollo, puedes incluir otras carpetas
+# por ejemplo, para proyectos TypeScript
+*.tsbuildinfo
+
+# Archivos de configuración del editor
+.vscode/
+.idea/
+
+# Logs y archivos temporales
+*.log
+*.tmp
+
+# Archivos de usuario
+.DS_Store
+Thumbs.db
