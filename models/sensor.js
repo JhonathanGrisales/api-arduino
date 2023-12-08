@@ -7,11 +7,15 @@ class Sensor {
 
       const { limit, offset } = getPagination(page, size);
 
-      return await ReadingsDHT.findAll({
-        offset: offset,
-        limit: limit < 100 ? limit : 100,
+      const results = await ReadingsDHT.findAll({
+        limit: 10,
         raw: true,
+        order: [["id", "DESC"]],
       });
+
+      const reversedResults = results.reverse();
+
+      return reversedResults;
     } catch (error) {
       throw new Error(error);
     }
