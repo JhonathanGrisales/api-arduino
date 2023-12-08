@@ -1,9 +1,17 @@
 const ReadingsDHT = require("./ORM/Sensor");
 
 class Sensor {
-  async getDataDht() {
+  async getDataDht(params) {
     try {
-      return await ReadingsDHT.findAll({ raw: true });
+      const { page, size } = params;
+
+      const { limit, offset } = getPagination(page, size);
+
+      return await ReadingsDHT.findAll({
+        offset: offset,
+        limit: limit < 100 ? limit : 100,
+        raw: true,
+      });
     } catch (error) {
       throw new Error(error);
     }
@@ -19,5 +27,12 @@ class Sensor {
     }
   }
 }
+
+const getPagination = (page, size) => {
+  const limit = size ? size : 10;
+  const offset = page ? page * limit : 0;
+  return { limit, offset };
+};
+
 
 module.exports = Sensor;

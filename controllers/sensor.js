@@ -4,7 +4,10 @@ const sensor = new Sensor();
 
 const getDataDht = async (req, res) => {
   try {
-    const lecturasDht = await sensor.getDataDht();
+
+    const params = req.query;
+
+    const lecturasDht = await sensor.getDataDht(params);
     return res.status(200).json({
       lecturasDht,
     });
@@ -16,7 +19,6 @@ const getDataDht = async (req, res) => {
 
 const createRegisterDht = async (req, res) => {
   try {
-    console.log("hola mundo");
     const body = req.body;
     await sensor.createRegisterDht(body);
     return res.status(200).json({
