@@ -23,9 +23,9 @@ class Sensor {
 
   async createRegisterDht(body) {
     try {
-      const { temperatura, humedad } = body;
+      const { temperatura, humedad, distancia } = body;
 
-      return ReadingsDHT.create({ temperatura, humedad });
+      return ReadingsDHT.create({ temperatura, humedad, distancia});
     } catch (error) {
       throw new Error(error);
     }
