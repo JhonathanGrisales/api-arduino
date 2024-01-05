@@ -22,6 +22,9 @@ const ReadingsDHT = sequelize.define(
     distancia: {
       type: DataTypes.NUMERIC,
     },
+    volumen: {
+      type: DataTypes.NUMERIC,
+    },
   },
   {
     tableName: "lecturas_dht",
