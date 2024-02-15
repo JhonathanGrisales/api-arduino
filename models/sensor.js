@@ -8,7 +8,7 @@ class Sensor {
       const { limit, offset } = getPagination(page, size);
 
       const results = await ReadingsDHT.findAll({
-        limit: 10,
+        limit: 20,
         raw: true,
         order: [["id", "DESC"]],
       });
